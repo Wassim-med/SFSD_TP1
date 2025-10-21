@@ -15,10 +15,10 @@ typedef struct T_rec1 {
 } t_rec1;
 
 // record = <account, balance> (CCP)
-typedef struct T_rec2 {
-    int account;
+typedef struct CCP {
+    int ccp_number;
     int balance;
-} t_rec2;
+} CCP;
 
 
 // ---- Constants (macros) ----
@@ -31,6 +31,8 @@ typedef struct T_rec2 {
 #define ERR_LEAP_DAY    0x08
 #define ERR_FORMAT      0x10
 #define ERR_FUTURE_DATE 0x20
+// 2. CCP file creation
+
 
 
 // ---- Function prototypes ----
@@ -98,6 +100,25 @@ void menu1_3(FILE **f);
 
 // Encode/Decode file
 void menu1_4(FILE **f, char *filename_encoded, char *filename_decoded, FILE **f_encoded, FILE **f_decoded);
+
+
+
+FILE* create_random_file1(char *file_name_1, int number_of_accounts , int min_ccp_number );
+
+int search_ccp(FILE *file1, int ccp_number); // returns 0 in failure, else 1
+
+FILE* create_random_file2( char *file_name,  int number_of_transfers, int min_ccp_number, int number_of_accounts);
+
+void insert_transfer(FILE* file1,FILE *file2, int ccp_number, int balance);
+
+void update (FILE* file1, FILE* file2);
+
+void menu2 ();
+
+ void menu2_1(FILE *file1, FILE* file2) ;
+
+void menu2_2(FILE *file1, FILE* file2);
+
 
 
 
